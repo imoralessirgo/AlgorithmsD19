@@ -1,4 +1,4 @@
-package imoralessirgo.hw1;
+
 
 import edu.princeton.cs.algs4.*;
 
@@ -17,69 +17,9 @@ public class Computation {
 	 * @return     stack of factors, where the factors appear in reverse sorted order (largest on top).
 	 */
 	static Stack<Long> factorize(long n) {
-		long[] hold = new long[] {};
-		Stack<Long> FactorStack = new Stack<Long>();
-		do{
-		hold = getFactor(n);
-		if (hold == null) {
-			FactorStack.push(n);
-		}else {
-			FactorStack.push(hold[1]);
-			n = hold[0];
-		}
-		
-		}while(hold != null);
-		// REPLACE with your own code
-				sortStack(FactorStack);
-				return FactorStack;
-	}
-	
-	
-	/**
-	 * 
-	 * @param a
-	 * @return long[]
-	 */
-	static long[] getFactor(long a) {
-		if (a == 1) {return null;}
-		for (long i=2;i<a;i++) {
-			if (a%i == 0) {
-				a = a/i;
-				return new long[] {a,i};
-			}
-		}
+		// REPLACE with your own code.
 		return null;
 	}
-	
-	/**
-	 * 
-	 * @param toSort
-	 * @return Sorted stack
-	 */
-	static void sortStack(Stack<Long> toSort) {
-		if(!toSort.isEmpty()) {
-			Long temp = toSort.pop();
-			sortStack(toSort);
-			valInsert(toSort,temp);
-		}
-		// REPLACE with your own code.
-
-	}
-	
-	/**
-	 * 
-	 * @param toSort
-	 * @param temp
-	 */
-	static void valInsert(Stack<Long> toSort, Long temp) {
-		if(toSort.isEmpty() || temp > toSort.peek()) {
-			toSort.push(temp);
-			return;
-		}
-		
-		// REPLACE with your own code.
-	}
-	
 	
 	/**
 	 * Given a stack of numbers, representing the prime factors of a number n, return
@@ -92,17 +32,6 @@ public class Computation {
 	 */
 	static boolean isSquare(Stack<Long> factors) {
 		// REPLACE with your own code.
-		while(!factors.isEmpty()) {
-			long a = factors.pop();
-			long b = 0;
-			if(!factors.isEmpty()) {
-				b = factors.pop();
-			}
-			if (a == b && factors.isEmpty()) {
-				return true;
-			}
-		}
-		
 		return false;
 	}
 	

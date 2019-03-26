@@ -5,13 +5,39 @@ Written Questions
 Q1. Stack Experiments (30 Points):
 ----------------------------------
 
-1.1.
-1.2.
-1.3.
-1.4.
-1.5.
-1.6.
-1.7.
+1.1. The result is 7.0 (for correct answer input would have to be 
+	 (2+(3+4))
+	 Ops Stack contains ["+"] (first value pushed into the ops stack)
+	 Vals stack contains [2.0] (first value pushed into the vals stack)
+
+
+1.2. The result is 7.0 (even though the expression is not formated correctly 
+	 it will still give the correct result given the fact that it only
+	 pops one of the "-"from the ops stack.
+	 The operations stack still contains the first ["-"] operator. 
+	 The vals stack is empty.
+	 
+1.3. Result : 99.0 ( closing parentheses was never found so the content
+	 of the ops stack is never popped)
+	 Ops Stack contains "-".
+	 Vals Stack is empty
+
+1.4.Result: 1.75 (given the format the only operation that actually 
+	executes is (7 / 4) 
+	Ops stack ["+", "*"] with * being at the bottom of the stack
+	Vals stack [2.0, 2.0]
+
+1.5. Resut : 4.625 (Correct result, input properly formated)  
+	 OPs stack is empty []
+	 Vals stack is empty  []                                                
+
+1.6. See evaluate.java, added % and ceiling as operations to be pushed to the stack 
+	 when found. Also added their respective operation inside the closing parentheses
+	 operations 
+
+1.7. Result : 2.0
+	 Ops stack empty []
+	 Vals stack empty []
 
 Also be sure to copy Evaluate to USERID.hw1, modify it, and include in your submission.
 
@@ -27,11 +53,11 @@ Q3. Counting Computations Exercise (20 Points):
 
 3.1 Enter formula for computing number of array inspections for UnknownArraySolution
 
-   f(n) = ...
+   f(n) = [[(n^2)(n^2 + 1)]/2] + [(n^2 - n^3)(n^2)]  
 
 3.2 Enter formula for computing number of array inspections for ImprovedUnknownArraySolution
 
-   g(n) = ...
+   g(n) = [N^3 -2(n^2)][n^2 -1] + [(n^4 + n^2)/2] + n^2
    
 
 Q4. Stack Programming Exercise (20 Points):

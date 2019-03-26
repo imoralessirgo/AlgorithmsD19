@@ -18,9 +18,54 @@ public class RowOrderedArraySolution extends RowOrderedArraySearch {
 	 */
 	@Override
 	public int[] locate(int target) {
-		// FIX ME: complete this method.
-		return null;
+
+			int low = 0;
+			int high = length() -1;
+
+			while (low <= high) {
+				int mid = (low+high)/2;
+				int val = inspect(mid,0);
+				if(val == target) {
+					return new int[] {mid,0};
+				}else if (val < target) {
+					low = mid+1;
+				} else {
+					high = mid-1;
+				}
+			}
+			
+			
+// 			linear approach
+//			for (int i = 1; i < length(); i++ ) {
+//				if(inspect(high,i) == target) {
+//					return new int[] { high, i};
+//				}
+//			}
+			return BinarySearch(high, target);
+			
 	}
+	
+	int[] BinarySearch(int row, int target) {
+		
+			int low = 1;
+			int high = length() -1;
+
+			while (low <= high) {
+				int mid = (low+high)/2;
+
+				int rc = inspect(row, mid) - target;
+				if (rc < 0) {
+					low = mid+1;
+				} else if (rc > 0) {
+					high = mid-1;
+				} else {
+					return new int[] {row, mid};
+				}
+		
+		}
+			return null;
+	}
+
 	
 	/** Be sure that you call your class constructor. Do not modify this method. */ 
 	public static void main (String args[]) {
